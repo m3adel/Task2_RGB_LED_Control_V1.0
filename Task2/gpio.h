@@ -68,6 +68,7 @@ typedef struct
 	enm_gpio_pinAmpere_t						enm_gpio_pinAmpere;
 	enm_gpio_pullUP_t						enm_gpio_pullUP;
 }str_gpio_config_t;
+/*APIs*/
 u8 GPIO_init ( str_gpio_config_t str_gpio_config );
 u8 GPIO_write ( str_gpio_config_t str_gpio_config, enm_gpio_pinWritevalue_t	enm_gpio_pinWritevalue );
 u8 GPIO_read ( str_gpio_config_t str_gpio_config );

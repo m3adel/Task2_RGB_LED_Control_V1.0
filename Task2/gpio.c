@@ -184,6 +184,12 @@ u8 GPIO_tog ( str_gpio_config_t str_gpio_config )
 	TOG_BIT( GPIODATA(str_gpio_config.enm_gpio_portNumber) , str_gpio_config.enm_gpio_pinNumber ); 	//toggle value of pinNumber in PortA
 	return u8_l_ret;
 }
+/*
+ Name: GPIO_dinit
+ Input: str_gpio_config_t str_gpio_config
+ Output: u8
+ Description: Function to dinitialize Pin value.
+*/
 u8 GPIO_dinit ( str_gpio_config_t str_gpio_config )
 {
 	u8 u8_l_ret = GPIO_OKAY;
