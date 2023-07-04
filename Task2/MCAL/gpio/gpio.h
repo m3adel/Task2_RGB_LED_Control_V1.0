@@ -45,21 +45,22 @@ typedef enum
 	ENABLE,
 	DISABLE
 } enm_gpio_pullUP_t;
-
+/*****************************************************************************/
 /* Error list */
 typedef enum 
 {
-	GPIO_PIN_INIT_ERROR	=	0XF0,
-	GPIO_PIN_WRITE_ERROR			,
-	GPIO_PIN_TOGGLE_ERROR		,
-	GPIO_PORT_INIT_ERROR			,
-	GPIO_PORT_READ_ERROR			,
-	GPIO_PORT_WRITE_ERROR		,
+	GPIO_PIN_INIT_ERROR	=		0XF0,
+	GPIO_PIN_WRITE_ERROR				,
+	GPIO_PIN_TOGGLE_ERROR				,
+	GPIO_PORT_INIT_ERROR				,
+	GPIO_PORT_READ_ERROR				,
+	GPIO_PORT_WRITE_ERROR				,
+	GPIO_PIN_DINIT_ERROR				,
 	GPIO_HIGHER_NIPPLE_ERROR		,
-	GPIO_LOWER_NIPPLE_ERROR		,
+	GPIO_LOWER_NIPPLE_ERROR			,
 	GPIO_OKAY
 } enm_gpio_errors_t;
-
+/*****************************************************************************/
 typedef struct
 {
 	enm_gpio_portNumber_t	enm_gpio_portNumber;

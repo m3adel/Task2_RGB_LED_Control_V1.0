@@ -9,7 +9,7 @@
 /*
  Name: LED_init
  Input: str_gpio_config_t st_gpio_config
- Output: void
+ Output: u8
  Description: Function to initialize Pin value.
 */
 u8 LED_init (str_gpio_config_t st_gpio_config)

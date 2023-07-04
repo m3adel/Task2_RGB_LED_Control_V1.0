@@ -79,6 +79,7 @@
 
 u8 GPIO_init ( str_gpio_config_t str_gpio_config )
 {
+	u8 u8_l_ret = GPIO_OKAY;
 	//step 1:
 			SET_BIT( RCGCGPIO , str_gpio_config.enm_gpio_portNumber );    // 1) Enable the clock to the port by setting the appropriate bits in the RCGCGPIO register
 		//step 2:
@@ -92,6 +93,10 @@ u8 GPIO_init ( str_gpio_config_t str_gpio_config )
 			else if (str_gpio_config.enm_gpio_pinDirection == IN)
 			{
 				CLR_BIT( GPIODIR(str_gpio_config.enm_gpio_portNumber) ,str_gpio_config.enm_gpio_pinNumber);   //clear Initial PortA Direction
+			}
+			else
+			{
+				u8_l_ret = GPIO_PIN_INIT_ERROR;
 			}
 		//step 4:
 		GPIOAFSEL(str_gpio_config.enm_gpio_portNumber) = 0x00;	// 4) disable alt funct on P7-0
@@ -114,6 +119,7 @@ u8 GPIO_init ( str_gpio_config_t str_gpio_config )
 			}
 			else
 			{
+				u8_l_ret = GPIO_PIN_INIT_ERROR;
 			}
 		//step 6:
 			if (str_gpio_config.enm_gpio_pullUP == ENABLE)
@@ -126,6 +132,7 @@ u8 GPIO_init ( str_gpio_config_t str_gpio_config )
 			}
 			else
 			{
+				u8_l_ret = GPIO_PIN_INIT_ERROR;
 			}
 			//step 7:
 			GPIOAMSEL(str_gpio_config.enm_gpio_portNumber) = 0x00;	// 3) disable analog funct on P7-0
@@ -134,7 +141,7 @@ u8 GPIO_init ( str_gpio_config_t str_gpio_config )
 	
 	
 
-	return GPIO_OKAY;
+	return u8_l_ret;
 }
 
 
@@ -222,6 +229,7 @@ u8 GPIO_dinit ( str_gpio_config_t str_gpio_config )
 			}
 			else
 			{
+				u8_l_ret = GPIO_PIN_DINIT_ERROR;
 			}
 		//step 6:
 				CLR_BIT( GPIOPUR(A) , str_gpio_config.enm_gpio_pinNumber );
